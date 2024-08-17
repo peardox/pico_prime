@@ -147,10 +147,11 @@ float primer(bool firstpass) {
         searchto = trunc(sqrt(candidate));
         // Assume the candidate is prime
         isprime = true;
-        for(count = 0; (primes[count] <= searchto); count++) {
-            // Get the remainder created by dividing the candidate by all primes and including up to searchto
+        // Get the remainder created by dividing the candidate by all primes and including up to searchto
+        for(count = 1; (primes[count] <= searchto); count++) {
+			// Start at 1 rather than 0 to bypass div/2
             remainder = candidate % primes[count];
-            // If the remainder was zero then trhe current candidate is divisible by an already known prime
+            // If the remainder was zero then the current candidate is divisible by an already known prime
             // which means that the candidate is not prime
             if(remainder == 0) {
                 isprime = false;
